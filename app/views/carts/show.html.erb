@@ -4,7 +4,8 @@
     <h1>My Cart</h1>
   </header>
 
-  <div class="panel panel-default items">
+  <% if cart_subtotal_cents > 0 %>
+    <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -48,5 +49,8 @@
       <% end %>
     </div>
   </div>
+  <%elsif%>
+    <div class="alert alert-info" role="alert">Your cart is empty! Please <a href="/" class="alert-link">CLICK HERE</a> to return to the home page.</div>
+  <%end %>
 
 </section>
