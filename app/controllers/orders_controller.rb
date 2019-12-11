@@ -2,6 +2,9 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @order_items = @order.line_items
+    @totalcents = @order.total_cents
+    @emailadd = @order.email
   end
 
   def create
