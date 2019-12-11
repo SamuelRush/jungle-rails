@@ -10,6 +10,17 @@ class ApplicationController < ActionController::Base
   end
   helper_method :cart
 
+  def product_count
+    @product_count = Product.count
+  end
+  helper_method :product_count
+
+  def category_count
+    @category_count = Category.count
+  end
+  helper_method :category_count
+
+
   def enhanced_cart
     @enhanced_cart ||= Product.where(id: cart.keys).map {|product| { product:product, quantity: cart[product.id.to_s] } }
   end
